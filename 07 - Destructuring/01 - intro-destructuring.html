@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01 - introdução destructuring</title>
+</head>
+<body>
+
+    <script>
+
+        var data = {
+            name: 'Jonatas',
+            surname: 'Antunes',
+            age: 26,
+            blog: 'https://jonatas.com.br',
+            social: {
+                twitter: '@jonatasexemplo',
+                facebook: '/jonatasexemplo'
+            }
+        };
+
+        // Para atribir os dados em variaveis e exibir no console no ES5 faziamos assim:
+       /*  
+        const name = data.name;
+        const twitter = data.social.twitter;
+
+        console.log("modo ES5\n", name);
+        console.log("modo ES5\n", twitter); 
+        */
+
+        // Com o destructing podemos informar quais valores queremos pegar dentro do {} e atribuir qual a variavel que será utlizada no destructing, no caso 'data'
+        const {name, surname} = data;
+        console.log('Modo ES6: ', name);
+        console.log('Modo ES6: ', surname);
+
+        // E para obter dados dentro de objetos:
+        const {twitter, facebook} = data.social;
+        console.log('Modo ES6: ', twitter);
+        console.log('Modo ES6: ', facebook);
+
+        // Para nomear a variavel:
+        const {age: idade, blog: site} = data;
+        console.log('Modo ES6: ', idade);
+        console.log('Modo ES6: ', site);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>03 - Swap de variaveis com destructing</title>
+</head>
+<body>
+
+    <script>
+
+        // Podemos realizar swaps (troca de valor de variaveis) utlizando []
+        let firstName = 'Jonatas';
+        let surName = 'Antunes';    
+
+        // antes do swap
+        console.log(`Nome: ${firstName} ${surName}`);
+
+        [firstName, surName] = [surName, firstName]
+
+        // depois do swap
+        console.log(`Nome: ${firstName} ${surName}`);
+
+    </script>
+</body>
+</html>
