@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01 - Escopo no JS</title>
+</head>
+<body>
+
+    <script>
+
+        // var: Define uma variavel global, neste caso já atribuindo um valor à ela
+        var animal = 'cat';
+
+
+        // Criando uma variavel com o mesmo nome dentro de um escopo de função
+        function sayAnimal() {
+            // A variavel definida dentro da função, só estará disponivel neste 'bloco' ou {}
+            var animal = 'dog';
+            return animal;
+        }
+
+        // A função exibirá a variavel dentro de seus escopo
+        console.log('variaval dentro do escopo: ' + sayAnimal());
+
+        //  O console exibirá a variavel definida globalmente
+        console.log('variaval global: ' + animal);
+
+        // Para alterar a variavel dentro do escopo da função podemos usa-la sem o 'var', pois o escopo da função tem acesso as variaveis globais
+        function sayAnimalModified() {
+            animal = 'wolf';
+            return animal;
+        }
+
+        // A função exibirá a variavel global modificada
+        sayAnimalModified();
+        console.log('variaval global modificada: ' + animal);
+
+    </script>
+    
+</body>
+</html>

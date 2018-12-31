@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02 - let</title>
+</head>
+<body>
+    
+    <script>
+
+        var animal = 'cat';
+
+        // Dentro do mesmo escopo não possível criar uma variavel let com o mesmo nome de uma 'var', porém dentro de um escopo diferente é possivel, pois não são iguais, portanto as variaveis 'let' são recomendadas quando queremos garantir que a variavel só estará disponivel dentro de um escopo.
+
+        // let animal = 'cat';
+
+        {
+            let animal = 'dog';
+            console.log('dentro do escopo: ' + animal);
+        }
+
+        console.log('fora do escopo: ' + animal);
+        
+    </script>
+
+</body>
+</html>

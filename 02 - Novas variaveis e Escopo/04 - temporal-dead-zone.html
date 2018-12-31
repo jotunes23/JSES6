@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>04 - temporal dead zone</title>
+</head>
+<body>
+    
+    <script>
+        
+        // Quando utilizamos o 'var' o js utiliza o 'hoisting' para levar as variaveis para o começo do script (porém o seu valor continua sendo definido na linha onde foi criado, então no caso abaixo o console detecta a existencia da variavel porém seu valor ainda não ofi definido)
+        console.log(cat);
+
+        var cat = 'meow';
+
+        // Ao utilizar 'let' e 'const' é necessário definir o valor pois nestes casos não é realizado o 'hoisting'
+        // console.log(pessoa);
+        // console.log(pi);
+        let pessoa = 'johnny';
+        const pi = 3.14;
+        
+    </script>
+
+</body>
+</html>

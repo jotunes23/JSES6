@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>03 - const</title>
+</head>
+<body>
+    
+    <script>
+        
+        // const: Define uma variavel constante, ou seja, seu valor não pode ser modificado
+        const secretNumber = 28;
+
+        // Isso causará um TypeError
+        // secretNumber = 40;
+
+        console.log('constante: ', secretNumber);
+
+        // É possível alterar o valor da propriedade de uma constante do tipo objeto
+        const pessoa = {
+            name: "Johnny",
+            age: 15
+        };
+
+        console.log('Objeto const:\n', pessoa);
+
+        // Alterando a propriedade de um objeto em const
+        pessoa.name = "Jonatas";
+
+        console.log('Objeto cost com propriedade alterada:\n', pessoa);
+
+        // Object.freeze(): Cria um ojeto imutável
+        const animal = {
+            name: "dog",
+            age: 10
+        };
+
+        // 'Congelando' o objeto animal
+        Object.freeze(animal);
+
+
+        // Tentando alterar uma propriedade de um objeto congelado
+        animal.name = 'wolf';
+
+        console.log('Objeto imutavel:\n', animal);
+
+
+
+    </script>
+
+</body>
+</html>
