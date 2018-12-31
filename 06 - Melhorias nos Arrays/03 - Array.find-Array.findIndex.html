@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>03 - Array.find / Array.findIndex</title>
+</head>
+<body>
+
+    <script>
+
+        // Array.find: Retorna o primeiro valor que encontrar no array, no caso abaixo o 'x' representa o item no array a condição esta dentro da Arrow Function
+        const sampleArray = [4, -5, 0, -12, -2];
+
+        const subZero = sampleArray.find(x => x < 0);
+
+        console.log('Primeiro valor que é menor que 0: ', subZero);
+
+        // Array.findIndex(): Funciona como o Array.find() porém retorna o index
+        const subZeroIndex = sampleArray.findIndex(x => x < 0);
+        console.log('Index do primeiro valor que é menor que 0: ', subZeroIndex);
+
+        // Podemos utilizar o metodo find() para busca dados em API como na simulaçao abaixo:
+        const data = [
+            {
+                name: "Jonatas",
+                age: 26,
+                city: 'São Paulo'
+            },
+            {
+                name: "Willian",
+                age: 22,
+                city: 'Rio de Janeiro'
+            }
+        ];
+
+        const willian = data.find(person => person.name === 'Willian');
+
+        console.log(willian);
+
+    </script>
+</body>
+</html>
