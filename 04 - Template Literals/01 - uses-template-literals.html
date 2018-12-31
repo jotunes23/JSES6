@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01 - uses template literals</title>
+</head>
+<body>
+
+    <script>
+
+        // Template String: permitem a criação de string com variáveis internas e concatenações de maneira mais fácil
+        
+        const regiao = {
+            country: 'Brasil',
+            city: 'São Paulo'
+        };
+
+        // Para concatenar as propriedades do objeto de maneira comum, precisamos quebrar a string
+        const stringComum = 'Eu moro no ' + regiao.country + ' na cidade de ' + regiao.city + '.';
+
+        console.log(stringComum);
+
+        // Com Template Strings podemos colocar a string dentro de `` e utilizar ${} para capturar as variaveis
+        const stringTL = `Eu moro no ${regiao.country} na cidade de ${regiao.city}.`; 
+
+        console.log(stringTL);
+
+
+        // Quebrando linha da maneira tradicional
+        const fruits = 'banana'
+                        + '\n'
+                        +'orange'
+                        + '\n'
+                        +'apple';
+        
+        console.log(fruits);
+
+        // Quebrando linha com Template Strings
+        const newFruits = `
+            banana
+            orange
+            apple
+        `;
+
+        console.log(newFruits);
+
+    </script>
+    
+</body>
+</html>

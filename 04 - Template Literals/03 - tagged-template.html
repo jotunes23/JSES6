@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>03 - tagged template</title>
+    <style>
+        .green {
+            color: green;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <script>
+
+        const city = "São Paulo";
+        const something = "Garoa";
+        const otherThing = "Pastel";
+
+
+        // Se ativar o debugger você vera que em scope teremos dois arrrays, um contendo a template literal 'sampa' cortado em 4 partes ["Eu vivo em ", " a cidade da ", " e do ", "!"] e outro array com os valores das variaveis ["São Paulo", "Garoa", "Pastel"].
+        function green(template, ...values) {
+            // debugger;
+            return template.reduce((acumulador, atual, counter) => {
+                return `
+                    ${acumulador}
+                    <span class="green">${values[counter - 1]}</span>
+                    ${atual}
+                `
+            });
+        }
+        
+        // Tagged Template: É uma função que vai varrer o Temaplate Literal e modifica-la como você quiser
+        const sampa = green`Eu vivo em ${city} a cidade da ${something} e do ${otherThing}!`;
+
+        document.body.innerHTML = sampa;
+
+    </script>
+</body>
+</html>
