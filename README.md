@@ -1,2 +1,1 @@
-# JSES6
-Javascript ES6
+# Curso Javascript ES6
