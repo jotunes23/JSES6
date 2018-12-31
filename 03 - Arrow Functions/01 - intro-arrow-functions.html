@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01 - intro arrow functions</title>
+</head>
+<body>
+    
+    <script>
+
+        const estados = ['São Paulo', 'Rio de Janeiro', 'Minas Gerais'];
+
+        // Função anônima comum
+        const love = estados.map(function(name) {
+            return `I love ${name}!`;
+        });
+
+        console.log('Função anônima comum:\n', love);
+
+        // Arrow Function: Não precisa utilizar o termo 'function' bastando apenas colocar os argumentos (args) e a seta '=>'
+        const loveArrow = estados.map((name) => {
+            return `I love ${name}!`;
+        });
+
+        console.log('Arrow Function:\n', loveArrow);
+
+        // Arrow Function com apenas um parametro não precisam usar parenteses para os argumentos, e quando é 'single line' apenas uma linha, não é necessário o uso do return
+        const loveArrowSingle = estados.map(name => `I love ${name}!`);
+
+        console.log('Arrow Function com um parametro:\n', loveArrowSingle);
+
+        // Encadeando funções com Arrow Functions
+        const loveChain = estados
+        .filter(name => name === 'São Paulo')
+        .map(name => `I love ${name}!`);
+
+        console.log('Arrow Function encadeadas:\n', loveChain);
+
+        
+    </script>
+
+</body>
+</html>

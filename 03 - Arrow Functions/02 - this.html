@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02 - this</title>
+</head>
+<body>
+
+    <button data-js="btn">Click Me!</button>
+    <button data-js="btnArrow">Click Me!</button>
+    
+    <script>
+
+        // this: objeto no qual estamos interagindo dentro de um contexto
+
+        const btn = document.querySelector('[data-js="btn"]');
+
+        // Quando atribuimos um event listener à um elemento, o 'this' representa o proprio elemento
+        btn.addEventListener('click', function(e) {
+            // evento capturado
+            console.log(e);
+            // objeto this
+            console.log(this);
+        }, false);
+
+        // Quando usamos um Arrow Function no callback do event listener, o 'this' passa a representar o contexto global (neste caso o 'window'), ou seja, não é sempre que devemos utilizar Arrow Functions, neste exemplo mesmo o ideal seria a função anonima pois queremos usar apenas o botão e não o window
+        const btnArrow = document.querySelector('[data-js="btnArrow"]');
+
+        btnArrow.addEventListener('click', (e) => {
+            // evento capturado
+            console.log(e);
+            // objeto this
+            console.log(this);
+        }, false);
+
+    </script>
+
+</body>
+</html>

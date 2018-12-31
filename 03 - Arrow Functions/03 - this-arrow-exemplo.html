@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>03 - this arrow exemplo</title>
+</head>
+<body>
+
+    <button id="btn">Make my sandwich!</button>
+    <button id="btnArrow">Make my sandwich! (with Arrow Function)</button>
+    
+    <script>
+
+        /* O método make precisa de uma variável para guardar o this, pois o método 'setTimeout' pertence ao 'window' então o this neste caso seria o proprio 'window' e não o 'sandwich', se chamarmos o this direto, o make() não encontraria o método prepare()  */
+
+        const sandwich = {
+            bread: 'White',
+            cheese: 'cheddar',
+
+            prepare: function() {
+                return `Eu quero um lanche com ${this.bread} e ${this.cheese}`;
+            },
+
+            make: function() {
+                var self = this;
+                window.setTimeout(function() {
+                    console.log(self.prepare());
+                }, 500);
+            }
+        };
+
+        const btn = document.querySelector('#btn');
+
+        btn.addEventListener('click', function() {
+            sandwich.make();
+        });
+
+        // Porém se usarmos arrows funcions em make() não será necessário guardar o this em outra variavel pois na arrow function o this será o seu contexto global, no caso o 'sandwich'
+        const sandwichArrow = {
+            bread: 'White',
+            cheese: 'cheddar',
+
+            prepare: function() {
+                return `Eu quero um lanche com ${this.bread} e ${this.cheese}`;
+            },
+
+            make: function() {
+                window.setTimeout(() => {
+                    console.log(this.prepare());
+                }, 500);
+            }
+        };
+
+        const btnArrow = document.querySelector('#btnArrow');
+
+        btnArrow.addEventListener('click', function() {
+            sandwichArrow.make();
+        });
+
+    </script>
+</body>
+</html>
