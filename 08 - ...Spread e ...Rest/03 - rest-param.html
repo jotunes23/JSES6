@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>03 - Rest Param</title>
+</head>
+<body>
+    
+    <script>
+
+        // O Rest Param Recebe uma lista de argumento, faz o caminho inverso do Spraed Operator
+        function quiosque(produto, ...itens) {
+            let lastItem = itens.pop();
+            let produtoItens = itens.join(', ');
+            return `Estamos fazendo seu ${produto} com ${produtoItens} e ${lastItem}`;
+        }
+
+        console.log(quiosque('açai', 'morango', 'banana', 'chocolate'));
+        
+    </script>
+</body>
+</html>

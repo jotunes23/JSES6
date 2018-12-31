@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01 - Introdução Spread Operator</title>
+</head>
+<body>
+    
+    <script>
+
+        // Os Spread Operators pegam elementos que são 'iteraveis' como Strings, Arrays... e desmembram em pequenas partes, são acionandos utilizando '...'
+
+        let front = ['react', 'vue', 'angular'];
+
+        let back = ['python', 'ruby', 'nodejs'];
+
+        // se quisessemos colocar estes dois arrays num outro array chamado fullstack e depois adicionar um item à front precisariamos fazer isso:
+        /* let fullstack = [];
+        fullstack = fullstack.concat(front);
+        fullstack.push('RxJS');
+        fullstack = fullstack.concat(back);
+        console.log(fullstack); */
+
+        // Utilizando Spread Operators podemos juntar os arrays mais facilmente incluindo o item adicional como string:
+        let fullstack = [...front, 'RxJS', ...back];
+        console.log(fullstack);
+
+        // Em strings:
+        console.log('spread operator em string: \n', ...'jonatas');
+
+        // Em arrays:
+        console.log('spread operator em array: \n', [...'jonatas']);
+
+    </script>
+</body>
+</html>
