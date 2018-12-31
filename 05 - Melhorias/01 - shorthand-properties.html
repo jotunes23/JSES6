@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01 - Shorthand Properties</title>
+</head>
+<body>
+    
+    <script>
+        let firstName = 'Jonatas';
+        let surName = 'Antunes';
+        let age = 26;
+
+        // No ES5 passavamos valores para propriedades de objeto desta forma:
+        /* 
+        const person = {
+            firstName: firstName,
+            surName: surName,
+            age: age,
+
+            hello: function() {
+                console.log('Ola!');
+            }
+        }; 
+        */
+
+        // No ES6 quando os valores passados tem o mesmo nome que a propriedade, não é necessário repeti-los, o shothand faz a atribuição automaticamente.
+        // Os métodos em shorthand não precisam usar o termo 'function'
+        const person = {
+            firstName,
+            surName,
+            age,
+
+            hello() {
+                console.log('Ola!');
+            }
+        }; 
+
+        console.log(person);
+        person.hello();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02 - default parameters</title>
+</head>
+<body>
+    
+    <script>
+        
+        // No ES5 quando queriamos fazer uma função com valores padrão faziamos desta forma:
+        function hello(nome, sobrenome) {
+            // recebe o argumento passado ou um valor que definimos como padrão
+            nome = nome || 'Jonatas';
+            sobrenome = sobrenome || 'Antunes';
+
+            console.log('Olá ' + nome + ' ' + sobrenome + '!');
+        }
+
+        hello();
+
+        // Utilizando Default Parameters:
+        function helloDefaultParameters(nome = 'Jimmy', sobrenome = 'Page') {
+            console.log(`Olá ${nome} ${sobrenome}!`);
+        }
+
+        helloDefaultParameters();
+        helloDefaultParameters('Robert', 'Plant');
+        
+    </script>
+</body>
+</html>

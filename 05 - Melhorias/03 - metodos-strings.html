@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Métodos para Strings</title>
+</head>
+<body>
+
+    <script>
+        
+        let text = 'Lorem ipsum dolor sit amet';
+
+        // startsWith(string, posição): Verifica se uma string começa com o valor passado no parametro
+        console.log('começa com "Lorem"? ', text.startsWith('Lorem'));
+        console.log('começa com "rem" a partir do index 2? ', text.startsWith('rem', 2));
+
+        // endsWith(string, posição): Verifica se uma string termina com o valor passado no parametro
+        console.log('termina com "amet"? ', text.endsWith('amet'));
+        console.log('termina com "et" na posição 26? ', text.endsWith('et', 26));
+
+        // repeat(): repete uma string na quantidade de vezes passadas no parametro
+        console.log('lol'.repeat(10));
+
+        // includes(): Procura se um termo existe dentro da string
+        console.log('Existe "ipsum" dentro do texto? ', text.includes('ipsum'));
+    </script>
+</body>
+</html>
