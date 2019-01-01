@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01 - revisao heranca prototipal</title>
+</head>
+<body>
+
+    <script>
+
+        // Herança Prototipal no ES5
+
+        // Class:
+        function Animal(kind, sound) {
+            // constructor:
+            this.kind = kind;
+            this.sound = sound;
+        }
+
+        // method:
+        Animal.prototype.hello = function() {
+            console.log(`${this.sound} I am a ${this.kind}!`);
+        }
+        
+        const dog = new Animal('dog', 'AU AU AU!');
+        const cat = new Animal('cat', 'Meow');
+
+        dog.hello();
+        cat.hello();
+
+    </script>
+    
+</body>
+</html>

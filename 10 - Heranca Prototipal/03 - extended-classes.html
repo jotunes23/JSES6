@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>03 - extend classes</title>
+</head>
+<body>
+
+    <script>
+
+        class Animal {
+            constructor(name) {
+                this.name = name;
+            }
+
+            hello() {
+                console.log(`I'm ${this.name}!`);
+            }
+        }
+
+
+        // Quando extendemos esta classe, tudo o que tem em Animal tem em Dog também, e para puxar as caracteristicas de animal utilizamos 'super'.
+        class Dog extends Animal {
+            constructor(name, sound, nickname) {
+                super(name);
+                this.sound = sound;
+                this.nickname = nickname;
+            }
+
+            bark() {
+                console.log(`${this.sound}! I'm a ${this.name} and my nickname is ${this.nickname}!`);
+            }
+        }
+
+        const elephant = new Animal('Dumbo');
+
+        const dog = new Dog('Dog', 'Au au au', 'Rex');
+
+    </script>
+    
+</body>
+</html>
