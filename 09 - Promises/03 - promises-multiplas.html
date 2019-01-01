@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>03 - Promises Multiplas</title>
+</head>
+<body>
+    
+    <script>
+        
+        const currency = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve({currency: 'euro', value: 3.50});
+            }, 2000);
+        });
+
+        const country = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(['Ireland', 'England', 'Scotland']);
+            }, 600);
+        });
+
+        // Atraves do construtor Promise, podemos utilizar o método all() que trabalha em cima de multiplas promises ao mesmo tempo, ele só vai resolver quando a promise mais lenta terminar
+        Promise 
+            .all([currency, country])
+            .then(responses => {
+                console.log('responses do all()\n', responses);
+            })
+
+        // race(): Trabalha com mulitplas promises porém quando a primeira promise for resolvida, ignora o resto, é útil quando se está fazendo requisições de vários lugares mas só a primeira resposta é que importa.
+        Promise 
+            .race([currency, country])
+            .then(responses => {
+                console.log('responses do race()\n', responses);
+            })
+            
+    </script>
+</body>
+</html>

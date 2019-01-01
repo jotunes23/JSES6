@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01 - Promises</title>
+</head>
+<body>
+    
+    <script>
+        
+        // Promises: É um objeto com uma ação que ainda não foi finalizada porém espera-se que seja finalizada de alguma forma, como uma promessa mesmo. São importantes para trabalhar de forma assincrona e para evitar callback hells.
+
+        // o objeto de Promise vai receber um método para quando fucionar e outro método para quando der erro
+        var defer = new Promise((resolve, reject) => {
+            // A promise vai ser realizada após os 2 segundos
+            setTimeout(() => {
+                if(true) {
+                    resolve('Funcionou! serei um "data pra o then()"');
+                } else {
+                    reject('deu erro!');
+                }
+            }, 2000);
+        });
+
+        // then(): Quando finalizar faça algo, pode ser encadeado com outros then()
+        //catch(err): Usado para tratamento de excessões
+        defer
+            .then((data) => {
+                console.log(data);
+                return 'Serei mais um "data" para proximo then()';
+            })
+            .then((data) => console.log(data))
+            .catch((err) => console.log(err));
+
+    </script>
+</body>
+</html>

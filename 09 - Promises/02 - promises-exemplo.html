@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02 - Exemplo de Promises</title>
+</head>
+<body>
+    
+    <script>
+        
+        // fetch(): funciona como uma requisição ajax, porém voltado para promises, ele espera receber qualquer tipo de dado, neste caso um json com todos os posts do blog do Willian Justen
+        var posts = fetch('https://willianjusten.com.br/search.json');
+
+
+        /* As Promises possuem 3 etapas:
+
+        pending: A promise ainda esta pendente
+        resolved: A Promise ja retornou um dado
+        rejected: Ocorreu um problema e a promise não se resolveu 
+
+        */
+
+        posts
+            // parseando o dado recebido para json
+            .then(data => data.json()) 
+            // Trazendo só os posts da categoria 'dev'
+            .then(data => data.filter(post => {
+                if(post.categories === 'dev') {
+                   console.log(post);
+                };
+            }))
+            .catch(err => console.error(err));
+
+    </script>
+</body>
+</html>
