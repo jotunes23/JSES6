@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01 - symbols-intro</title>
+</head>
+<body>
+
+    <script>
+        
+        // Symbol: É um tipo primitivo, é imutável e único
+        let foo = Symbol('name');
+        let bar = Symbol('name');
+
+        console.log(foo);
+
+        console.log(typeof(foo));
+
+        console.log(foo === bar);
+
+
+        // Podemos criar um objeto com propriedades Symbol
+        let obj = {
+            [Symbol('name')]: "Jonatas",
+            [Symbol('age')]: 26,
+            city: "São Paulo"
+        }
+
+        // Retornando propriedades normais
+        console.log(Object.keys(obj));
+
+        // Retornando propriedades Symbol
+        console.log(Object.getOwnPropertySymbols(obj));
+
+    </script>
+    
+</body>
+</html>
