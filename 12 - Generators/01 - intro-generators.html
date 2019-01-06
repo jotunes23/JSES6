@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01 - intro generators</title>
+</head>
+<body>
+    
+
+    <script>
+
+        // Generators: para utilizarmos colocamos um '*' após o function e podemos ter vários 'retornos' com 'yield'
+        // yield: funcina como um return, porém o segundo yield adiante só será retornado quando um iterador passar por essa função e o chamar.
+        function* genNames() {
+            yield 'Jonatas';
+            yield 'Wllian';
+            yield 'Gbriel';
+        }
+
+        // Se rodarmos a função desta forma teremos um retorno da função com a propriedade '[[GeneratorStatus]]: "suspended"', pois esta função esta aguardando um iterador para realizar alguma ação.
+        const names = genNames();
+
+        console.log(names);
+
+        // Utilizando o iterador para chamar os 'yelds'
+        console.log(names.next());
+        console.log(names.next());
+        console.log(names.next());
+
+    
+    </script>
+</body>
+</html>
