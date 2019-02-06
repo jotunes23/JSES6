@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01 - Módulos</title>
+</head>
+<body>
+    
+
+    <script>
+
+        /* 
+            Porque usar módulos?
+
+            - Manutenção: a modularização evita que o código entre em conflito e separa as responsabilidades das funções.
+            - Namespacing: Evita a poluição de nomes de variaveis globais. 
+            - Reusabilidade de código 
+        */
+
+        /* 
+            Tipos de Modulos
+             
+            1) Anonymous Closure:
+                - O módulo é criado dentro de uma IIFE 
+                - As variaveis declaradas dentro da closure ficam acessiveis somente à closure
+
+            2) Global Import:
+                - Neste padrão você consegue declarar uma váriavel global dentro da closure e os métodos dó módulo ainda podem ser visualizados. 
+                - Trabalhando com global import, passando uma váriavel para dentro do módulo e essa váriavel será trabalhada dentro da closure. 
+                - A váriavel importada para o módulo será a unica váriavel global que receberá os métodos internos e depois exportada novamente.
+
+            3) Interface de Objeto
+                - Neste padrão criamos um objeto e dentro dele retornamos os métodos, os métodos ficam acessiveis através do objeto.
+
+            4) Revealing Module Pattern
+                - Parecido com o padrão de interface de objeto porém tudo fica privado ao escopo da closure, podendo retornar métodos que você queira que sejam publicos(que podem ser chamados do lado de fora).
+        */
+
+        /* 
+            Approachs para modularização em JS
+
+            1) CommonJS: Bastante comum em Nodejs, trabalha com a ideia de 'require' onde exportamos nosso módulo depois requirimos em outro lugar:
+
+                Arquivo do módulo: 
+                
+                    function myModule() {
+                        this.hello = function() {
+                            return 'hello!';
+                        }
+
+                        this.goodbye = function() {
+                            return 'goodbye!';
+                        }
+                    }
+
+                    module.exports = myModule;
+
+                Arquivo com require:
+
+                    var myModule = require('myModule');
+
+                    var myModuleInstance = new myModule();
+                    myModuleInstance.hello(); // 'hello!'
+                    myModuleInstance.goodbye(); // 'goodbye!'
+
+            2) AMD: Definimos os módulos como dependencias e depois injetamos essas dependêcias
+        */
+
+        // Links úteis :
+        // https://medium.freecodecamp.org/javascript-modules-a-beginner-s-guide-783f7d7a5fcc
+        // https://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript
+        
+    </script>
+</body>
+</html>
