@@ -41,7 +41,7 @@
         /* 
             Approachs para modularização em JS
 
-            1) CommonJS: Bastante comum em Nodejs, trabalha com a ideia de 'require' onde exportamos nosso módulo depois requirimos em outro lugar:
+            1) CommonJS: Bastante comum em Nodejs, trabalha com a ideia de 'require' onde exportamos nosso módulo depois requirimos em outro lugar, é bom para evitar poluição de namespace e por que definimos quais dependecias serão usadas explicitamente:
 
                 Arquivo do módulo: 
                 
@@ -65,12 +65,87 @@
                     myModuleInstance.hello(); // 'hello!'
                     myModuleInstance.goodbye(); // 'goodbye!'
 
-            2) AMD: Definimos os módulos como dependencias e depois injetamos essas dependêcias
+            2) AMD: Definimos os módulos como dependencias e depois injetamos essas dependêcias utilizando o 'define':
+                    
+                Arquivo do módulo: 
+
+                    define(['myModule', 'myOtherModule'], function(myModule, myOtherModule) {
+                        console.log(myModule.hello());
+                    });
+
+                Arquivo com o 'define':
+
+                    define([], function() {
+                        return {
+                            hello: function() {
+                            console.log('hello');
+                            },
+                            goodbye: function() {
+                            console.log('goodbye');
+                            }
+                        };
+                    });
+
+            3) UMD: Este approach mistura um pouco do Commonjs com o AMD e mais os globais do browser, possui um fallback para chamar o módulo independente de qual approach está utilizando:
+
+                (function (root, factory) {
+                    if (typeof define === 'function' && define.amd) {
+                        // AMD
+                        define(['myModule', 'myOtherModule'], factory);
+                    } else if (typeof exports === 'object') {
+                        // CommonJS
+                        module.exports = factory(require('myModule'), require('myOtherModule'));
+                    } else {
+                        // Browser globals (Note: root is window)
+                        root.returnExports = factory(root.myModule, root.myOtherModule);
+                    }
+                    }(this, function (myModule, myOtherModule) {
+                    // Methods
+                    function notHelloOrGoodbye(){}; // A private method
+                    function hello(){}; // A public method because it's returned (see below)
+                    function goodbye(){}; // A public method because it's returned (see below)
+
+                    // Exposed public methods
+                    return {
+                        hello: hello,
+                        goodbye: goodbye
+                    }
+                }));
+
+            4) No ES6 temos um novo approach para módulos utlizando o 'export/import' para exportar/importar o funções, variáveis..
+
+                // lib/counter.js
+
+                var counter = 1;
+
+                function increment() {
+                counter++;
+                }
+
+                function decrement() {
+                counter--;
+                }
+
+                module.exports = {
+                counter: counter,
+                increment: increment,
+                decrement: decrement
+                };
+
+
+                // src/main.js
+
+                var counter = require('../../lib/counter');
+
+                counter.increment();
+                console.log(counter.counter); // 1
         */
 
-        // Links úteis :
-        // https://medium.freecodecamp.org/javascript-modules-a-beginner-s-guide-783f7d7a5fcc
-        // https://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript
+        /* 
+            Links úteis :
+            https://medium.freecodecamp.org/javascript-modules-a-beginner-s-guide-783f7d7a5fcc
+            https://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript 
+        */
         
     </script>
 </body>
