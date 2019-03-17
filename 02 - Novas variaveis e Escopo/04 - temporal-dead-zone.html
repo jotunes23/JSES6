@@ -7,10 +7,10 @@
     <title>04 - temporal dead zone</title>
 </head>
 <body>
-    
+
     <script>
-        
-        // Quando utilizamos o 'var' o js utiliza o 'hoisting' para levar as variaveis para o começo do script (porém o seu valor continua sendo definido na linha onde foi criado, então no caso abaixo o console detecta a existencia da variavel porém seu valor ainda não ofi definido)
+
+        // Quando utilizamos o 'var' o js utiliza o 'hoisting' para levar as variaveis para o começo do script (porém o seu valor continua sendo definido na linha onde foi criado, então no caso abaixo o console detecta a existencia da variavel porém retorna undefined pois seu valor ainda não foi definido)
         console.log(cat);
 
         var cat = 'meow';
@@ -20,7 +20,7 @@
         // console.log(pi);
         let pessoa = 'johnny';
         const pi = 3.14;
-        
+
     </script>
 
 </body>
